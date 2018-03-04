@@ -1,2 +1,3 @@
-# hello-world
-just an easy example
+# notes
+Keep some notes during development.
+
