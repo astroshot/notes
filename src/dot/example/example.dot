@@ -1,0 +1,14 @@
+digraph example {
+    node [shape="diamond"]
+    edge [style="dashed"]
+    
+    a[style="filled", color="green"]
+    b
+    c
+    d
+
+    a -> b
+    b -> d
+    c -> d[color="red"]
+    
+}
