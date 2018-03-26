@@ -1,0 +1,2 @@
+# lies in /etc/resolv.conf.head
+nameserver xxx.xxx.xxx.xxx
