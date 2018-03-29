@@ -8,3 +8,4 @@ _book
 .DS_Store
 .vscode/
 .git
+.ipynb_checkpoints
