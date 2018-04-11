@@ -12,4 +12,7 @@ then
     exit
 fi
 
-sort $1 | uniq
+filename=$(basename $1)
+output_file="$HOME/Desktop/push/${filename}"
+echo ${output_file}
+sort $1 | uniq > ${output_file}
