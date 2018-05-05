@@ -9,3 +9,5 @@ _book
 .vscode/
 .git
 .ipynb_checkpoints
+*.out
+*.so
