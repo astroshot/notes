@@ -21,6 +21,12 @@ cd visual-studio-code-bin/
 makepkg -s
 sudo pacman -U visual-studio-code-bin-*.pkg.tar.xz
 ```
+Install google-chrome
+```bash
+git clone https://aur.archlinux.org/google-chrome.git
+cd google-chrome
+aurman -U google-chrome-67.0.3396.99-1-x86_64.pkg.tar.xz
+```
 
 Install aurman
 ```bash
