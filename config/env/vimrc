@@ -10,9 +10,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
+Plugin 'Valloric/YouCompleteMe'
 " themes
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
@@ -25,7 +26,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'AutoClose--Alves'
 Plugin 'plytophogy/vim-virtualenv'
 
-" hive
+" hive sql
 Plugin 'autowitch/hive.vim'
 Plugin 'JessicaKMcIntosh/Vim'
 
@@ -33,13 +34,16 @@ Plugin 'JessicaKMcIntosh/Vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+" git
+Plugin 'tpope/vim-fugitive'
+
 call vundle#end()
 filetype plugin indent on
 " Vundle End
 
 " scheme
-set background=dark
 colorscheme solarized
+set background=dark
 
 set shortmess=atI
 set nu
@@ -84,10 +88,8 @@ au BufNewFile,BufRead *.q set filetype=hive expandtab
 
 " NERDTree
 " open a NERDTree automatically when vim starts up
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 " place the cursor in the editor
-autocmd VimEnter * NERDTree
-wincmd w
 autocmd VimEnter * wincmd w
 " open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
@@ -99,7 +101,6 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 " close vim when the only left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -126,3 +127,27 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
 " set width
 let NERDTreeWinSize=20
+
+" airline settings.
+let g:airline_theme = 'simple'
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline#extensions#tabline#enabled = 1
+" show absolute file path in status line
+let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+" show tab number in tab line
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
