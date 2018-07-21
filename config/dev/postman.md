@@ -1,4 +1,5 @@
 # Install Postman app on Linux based on Debian
+
 ```sh
 sudo tar -xzf postman.tar.gz -C /opt
 rm postman.tar.gz
@@ -6,6 +7,7 @@ sudo ln -s /opt/Postman/Postman /usr/bin/postman
 ```
 
 Create a desktop file for launcher
+
 ```sh
 cat > ~/.local/share/applications/postman.desktop <<EOL
 [Desktop Entry]
