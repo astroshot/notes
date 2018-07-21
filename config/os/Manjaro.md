@@ -73,5 +73,5 @@ aurman -S pycharm
 Others
 
 ```bash
-aurman -S boxes fcitx-googlepinyin graphviz neofetch tree
+aurman -S boxes fcitx-googlepinyin graphviz neofetch tree tcl tk
 ```
