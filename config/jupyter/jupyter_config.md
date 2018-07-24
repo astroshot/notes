@@ -32,3 +32,11 @@ c.NotebookApp.password = u'sha:xxxxxx'
 c.NotebookApp.open_browser = False
 c.NotebookApp.port =8888
 ```
+
+Install gophernotes
+
+```bash
+go get -u github.com/gopherdata/gophernotes
+mkdir -p ~/.local/share/jupyter/kernels/gophernotes
+cp $GOPATH/src/github.com/gopherdata/gophernotes/kernel/* ~/.local/share/jupyter/kernels/gophernotes
+```
