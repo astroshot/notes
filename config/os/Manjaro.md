@@ -30,6 +30,7 @@ sudo pacman -U visual-studio-code-bin-*.pkg.tar.xz
 ```
 
 Install google-chrome
+
 ```bash
 git clone https://aur.archlinux.org/google-chrome.git
 cd google-chrome
@@ -74,4 +75,12 @@ Others
 
 ```bash
 aurman -S boxes fcitx-googlepinyin graphviz neofetch tree tcl tk
+```
+
+Fix a stop job is running for session c2 of user xxx (xs / 1min 30s)
+
+```bash
+aurman -S watchdog
+systemctl enable watchdog.service
+systemctl start watchdog.service
 ```
