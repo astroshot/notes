@@ -71,6 +71,12 @@ PyCharm
 aurman -S pycharm
 ```
 
+Intellij-Idea
+
+```bash
+aurman -S intellij-idea-community-edition
+```
+
 Others
 
 ```bash
