@@ -69,12 +69,14 @@ PyCharm
 
 ```bash
 aurman -S pycharm
+sudo chown -R user:group /usr/share/pycharm
 ```
 
 Intellij-Idea
 
 ```bash
 aurman -S intellij-idea-community-edition
+sudo chown -R user:group /usr/share/intellijidea-ce
 ```
 
 Others
