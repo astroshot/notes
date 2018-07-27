@@ -1,0 +1,28 @@
+set shortmess=atI
+set nu
+syntax on
+set ruler
+set showcmd
+set showmatch
+set cursorline
+set hls
+
+let g:solarized_termcolors=256
+
+set encoding=utf-8
+set fenc=utf-8
+set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
+
+" set indent for most codes
+set expandtab
+set autoindent
+set fileformat=unix
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" basic status config
+" set statusline=%F%m%r%h%w\[POS=%l,%v][%p%%]\%{strftime(\"%y/%m/%d\ %H:%M\")}
+set statusline=%2*%n%m%r%h%w%*\ %F\ %1*[FORMAT=%2*%{&ff}:%{&fenc!=''?&fenc:&enc}%1*]\ [TYPE=%2*%Y%1*]\ [COL=%2*%03v%1*]\ [ROW=%2*%03l%1*/%3*%L(%p%%)%1*]
+set laststatus=2
