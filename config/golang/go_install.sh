@@ -14,3 +14,5 @@ go get golang.org/x/tools/cmd/godoc
 go get github.com/sqs/goreturns
 go get github.com/golang/lint/golint
 go get github.com/cweill/gotests/...
+curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
