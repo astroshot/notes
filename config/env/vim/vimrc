@@ -34,12 +34,16 @@ Plugin 'JessicaKMcIntosh/Vim'
 
 " toml
 Plugin 'cespare/vim-toml'
-" thrift
 Plugin 'solarnz/thrift.vim'
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" auto jump python
+Plugin 'davidhalter/jedi-vim'
+Plugin 'fatih/vim-go'
+Plugin 'Yggdroot/LeaderF'
 
 call vundle#end()
 filetype plugin indent on
