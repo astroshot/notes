@@ -10,17 +10,23 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " git
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 Plugin 'Valloric/YouCompleteMe'
+
 " themes
 " Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
+
 " auto indent
 Plugin 'vim-scripts/indentpython.vim'
+" indent line
+Plugin 'Yggdroot/indentLine'
 
 " grammar check/highlight 
 Plugin 'scrooloose/syntastic'
@@ -43,6 +49,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " auto jump python
 Plugin 'davidhalter/jedi-vim'
 Plugin 'fatih/vim-go'
+
 Plugin 'Yggdroot/LeaderF'
 Plugin 'majutsushi/tagbar'
 Plugin 'mileszs/ack.vim'
@@ -50,6 +57,7 @@ Plugin 'mileszs/ack.vim'
 call vundle#end()
 filetype plugin indent on
 " Vundle End
+
 
 colorscheme solarized
 set background=dark
@@ -133,14 +141,18 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-let g:airline#extensions#tabline#enabled = 1
 " show absolute file path in status line
 let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 " show tab number in tab line
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+let g:airline#extensions#bufferline#enabled = 1
 
 " ack
 if executable('ag')
