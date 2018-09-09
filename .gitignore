@@ -11,3 +11,5 @@ _book
 .ipynb_checkpoints
 *.out
 *.so
+*.swp
+
