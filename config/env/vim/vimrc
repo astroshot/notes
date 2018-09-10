@@ -13,26 +13,32 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" git
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-
-Plugin 'Valloric/YouCompleteMe'
 
 " themes
 " Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'luochen1990/rainbow'
 
-" auto indent
+" git
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+
+" auto complete
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'AutoClose--Alves'
+
+" python dev
+Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/indentpython.vim'
-" indent line
+" show indent line
 Plugin 'Yggdroot/indentLine'
 
 " grammar check/highlight 
 Plugin 'scrooloose/syntastic'
-" autoclose
-Plugin 'AutoClose--Alves'
 Plugin 'plytophogy/vim-virtualenv'
+
+" golang dev
+Plugin 'fatih/vim-go'
 
 " hive sql
 Plugin 'autowitch/hive.vim'
@@ -40,16 +46,15 @@ Plugin 'JessicaKMcIntosh/Vim'
 
 " toml
 Plugin 'cespare/vim-toml'
+
+" thrift
 Plugin 'solarnz/thrift.vim'
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-" auto jump python
-Plugin 'davidhalter/jedi-vim'
-Plugin 'fatih/vim-go'
-
+" tools
 Plugin 'Yggdroot/LeaderF'
 Plugin 'majutsushi/tagbar'
 Plugin 'mileszs/ack.vim'
@@ -57,7 +62,6 @@ Plugin 'mileszs/ack.vim'
 call vundle#end()
 filetype plugin indent on
 " Vundle End
-
 
 colorscheme solarized
 set background=dark
@@ -158,4 +162,6 @@ let g:airline#extensions#bufferline#enabled = 1
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+let g:rainbow_active = 1
 
