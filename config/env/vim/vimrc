@@ -25,7 +25,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " auto complete
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'AutoClose--Alves'
+Plugin 'jiangmiao/auto-pairs'
 
 " python dev
 Plugin 'davidhalter/jedi-vim'
@@ -34,7 +34,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Yggdroot/indentLine'
 
 " grammar check/highlight 
-Plugin 'scrooloose/syntastic'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'plytophogy/vim-virtualenv'
 
 " golang dev
@@ -57,7 +57,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " tools
 Plugin 'Yggdroot/LeaderF'
 Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
+Plugin 'justinmk/vim-sneak'
+
 
 call vundle#end()
 filetype plugin indent on
