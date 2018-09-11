@@ -34,21 +34,21 @@ Install google-chrome
 ```bash
 git clone https://aur.archlinux.org/google-chrome.git
 cd google-chrome
-aurman -U google-chrome-67.0.3396.99-1-x86_64.pkg.tar.xz
+yay -U google-chrome-67.0.3396.99-1-x86_64.pkg.tar.xz
 ```
 
-Install aurman
+Install yay
 
 ```bash
-git clone https://aur.archlinux.org/aurman.git
-cd aurman
+git clone https://aur.archlinux.org/yay.git
+cd yay
 makepkg -s
 ```
 
 Then error occurs:
 
 ```bash
-aurman_sources git repo ... 失败 (未知的公共密匙 XXXXXXXXXXXXXXX)
+yay_sources git repo ... 失败 (未知的公共密匙 XXXXXXXXXXXXXXX)
 ==> 错误： 一个或多个 PGP 签名无法校验！
 ```
 
@@ -62,33 +62,33 @@ Install fonts and symbola
 
 ```bash
 sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji wqy-microhei
-aurman -S ttf-symbola
+yay -S ttf-symbola
 ```
 
 PyCharm
 
 ```bash
-aurman -S pycharm
+yay -S pycharm
 sudo chown -R user:group /usr/share/pycharm
 ```
 
 Intellij-Idea
 
 ```bash
-aurman -S intellij-idea-community-edition
+yay -S intellij-idea-community-edition
 sudo chown -R user:group /usr/share/intellijidea-ce
 ```
 
 Others
 
 ```bash
-aurman -S boxes fcitx-googlepinyin graphviz neofetch tree tcl tk
+yay -S boxes fcitx-googlepinyin graphviz neofetch tree tcl tk
 ```
 
 Fix a stop job is running for session c2 of user xxx (xs / 1min 30s)
 
 ```bash
-aurman -S watchdog
+yay -S watchdog
 systemctl enable watchdog.service
 systemctl start watchdog.service
 ```
