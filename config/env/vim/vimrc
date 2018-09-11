@@ -1,69 +1,57 @@
-" vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin('~/.vim/bundle')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " themes
-" Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'luochen1990/rainbow'
+" Plug 'jnurmine/Zenburn'
+Plug 'altercation/vim-colors-solarized'
+Plug 'luochen1990/rainbow'
 
 " git
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " auto complete
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'Valloric/YouCompleteMe'
+Plug 'jiangmiao/auto-pairs'
 
 " python dev
-Plugin 'davidhalter/jedi-vim'
-Plugin 'vim-scripts/indentpython.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'vim-scripts/indentpython.vim'
 " show indent line
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 " grammar check/highlight 
-Plugin 'junegunn/vim-easy-align'
-Plugin 'plytophogy/vim-virtualenv'
+Plug 'junegunn/vim-easy-align'
+Plug 'plytophogy/vim-virtualenv'
 
 " golang dev
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 " hive sql
-Plugin 'autowitch/hive.vim'
-Plugin 'JessicaKMcIntosh/Vim'
+Plug 'autowitch/hive.vim'
+Plug 'JessicaKMcIntosh/Vim'
 
 " toml
-Plugin 'cespare/vim-toml'
+Plug 'cespare/vim-toml'
 
 " thrift
-Plugin 'solarnz/thrift.vim'
+Plug 'solarnz/thrift.vim'
 
 " NERDTree
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " tools
-Plugin 'Yggdroot/LeaderF'
-Plugin 'majutsushi/tagbar'
-Plugin 'rking/ag.vim'
-Plugin 'justinmk/vim-sneak'
+Plug 'Yggdroot/LeaderF'
+Plug 'majutsushi/tagbar'
+Plug 'rking/ag.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
 
+call plug#end()
 
-call vundle#end()
-filetype plugin indent on
-" Vundle End
 
 colorscheme solarized
 set background=dark
