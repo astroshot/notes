@@ -1,7 +1,7 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/bundle')
@@ -53,8 +53,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/LeaderF'
 Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
+Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
@@ -131,7 +131,7 @@ let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 
 let g:airline_left_sep = ''
@@ -153,11 +153,6 @@ let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 
 let g:airline#extensions#bufferline#enabled = 1
-
-" ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
 
 let g:rainbow_active = 1
 
