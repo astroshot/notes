@@ -9,7 +9,7 @@ typedef struct Node {
 int main(int argc, char *argv[]) {
     int a[1];
     Node *n;
-    int len = 100
+    int len = 100;
     a[0] = 0;
     printf("%d\n", a[0]);
     // this code runs when compiled by gcc
