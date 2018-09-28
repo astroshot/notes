@@ -57,7 +57,8 @@ Plug 'Yggdroot/LeaderF'
 Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 Plug 'haya14busa/incsearch.vim'
-Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -128,7 +129,7 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
 " set width
 " let NERDTreeWinSize=20
-let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\~$', '__pycache__$[[dir]]']
 
 " airline settings.
 let g:airline_theme = 'solarized'
