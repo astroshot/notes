@@ -10,6 +10,7 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 
 " themes
 " Plug 'jnurmine/Zenburn'
@@ -57,7 +58,6 @@ Plug 'Yggdroot/LeaderF'
 Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 Plug 'haya14busa/incsearch.vim'
-" Plug 'justinmk/vim-sneak'
 Plug 'easymotion/vim-easymotion'
 
 call plug#end()
@@ -160,5 +160,15 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 
 let g:airline#extensions#bufferline#enabled = 1
 
+" YCM configs
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_key_invoke_completion = '<C-z>'
+let g:ycm_min_num_identifier_candidate_chars = 2
+" 屏蔽 YCM 的诊断信息
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+
 let g:rainbow_active = 1
+
+let g:webdevicons_enable = 0
 
