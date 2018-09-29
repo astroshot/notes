@@ -16,6 +16,7 @@ Plug 'ryanoasis/vim-devicons'
 " Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
 Plug 'luochen1990/rainbow'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -190,4 +191,9 @@ let g:WebDevIconsUnicodeDecorateFileNodes = 0
 
 " Tagbar
 map <C-m> :TagbarToggle<CR>
+
+" nerdtree highlighting
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 
