@@ -124,6 +124,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " close vim when the only left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+map <C-n> :NERDTreeToggle<CR>
+
 " display row number in NERDTree
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
@@ -170,5 +172,18 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 0
 
 let g:rainbow_active = 1
 
-let g:webdevicons_enable = 0
+" devicons config
+if exists("g:loaded_webdevicons")
+    call webdevicons#refresh()
+endif
+let g:airline_powerline_fonts = 1
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_unite = 1
+let g:webdevicons_enable_vimfiler = 0
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_ctrlp = 0
+let g:webdevicons_enable_flagship_statusline = 0
+let g:WebDevIconsUnicodeDecorateFileNodes = 0
 
