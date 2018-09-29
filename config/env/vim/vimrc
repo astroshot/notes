@@ -54,6 +54,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " tools
+Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/LeaderF'
 Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
@@ -96,7 +97,7 @@ au BufNewFile,BufRead *.py
 \ set softtabstop=4 |
 \ set shiftwidth=4
 
-au BufNewFile,BufRead *.yaml
+au BufNewFile,BufRead *.yaml,*.yml,*.json
 \ set tabstop=2 |
 \ set softtabstop=2 |
 \ set shiftwidth=2
@@ -114,8 +115,8 @@ au BufNewFile,BufRead *.q set filetype=hive expandtab
 " place the cursor in the editor
 autocmd VimEnter * wincmd w
 " open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " open NERDTree automatically when vim starts up on opening a directory
 autocmd StdinReadPre * let s:std_in=1
@@ -186,4 +187,7 @@ let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_ctrlp = 0
 let g:webdevicons_enable_flagship_statusline = 0
 let g:WebDevIconsUnicodeDecorateFileNodes = 0
+
+" Tagbar
+map <C-m> :TagbarToggle<CR>
 
