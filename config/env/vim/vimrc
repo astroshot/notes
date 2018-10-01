@@ -13,7 +13,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
 " themes
-" Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
 Plug 'luochen1990/rainbow'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -36,6 +35,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
 Plug 'junegunn/vim-easy-align'
 Plug 'plytophogy/vim-virtualenv'
+Plug 'scrooloose/nerdcommenter'
 
 " golang dev
 Plug 'fatih/vim-go'
@@ -61,6 +61,7 @@ Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'mbbill/undotree'
 
 call plug#end()
 
@@ -70,12 +71,24 @@ set background=dark
 
 set shortmess=atI
 set nu
-syntax on
 set ruler
 set showcmd
 set showmatch
 set cursorline
+syntax on
 set hls
+set incsearch					" find as you type search
+set hlsearch					" highlight search terms
+set winminheight=0				" windows can be 0 line high
+set ignorecase					" case insensitive search
+set smartcase					" case sensitive when uc present
+set wildmenu					" show list instead of just completing
+set wildmode=list:longest,full	" command <Tab> completion, list matches, then longest common part, then all.
+set whichwrap=b,s,h,l,<,>,[,]	" backspace and cursor keys wrap to
+set scrolljump=5 				" lines to scroll when cursor leaves screen
+set scrolloff=3 				" minimum lines to keep above and below cursor
+set foldenable  				" auto fold code
+set gdefault					" the /g flag on :s substitutions by default
 
 let g:solarized_termcolors=256
 
@@ -92,6 +105,14 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+" Stupid shift key fixes
+cmap W w
+cmap WQ wq
+cmap Wq wq
+cmap wQ wq
+cmap Q q
+cmap Tabe tabe
+
 " .py files 
 au BufNewFile,BufRead *.py
 \ set tabstop=4 |
@@ -103,12 +124,21 @@ au BufNewFile,BufRead *.yaml,*.yml,*.json
 \ set softtabstop=2 |
 \ set shiftwidth=2
 
-let python_highlight_all=1
+" map <leader> to space, default '\'
+let g:mapleader = ","
+
+let python_highlight_all = 1
 
 " for .hql files
 au BufNewFile,BufRead *.hql set filetype=hive expandtab
 " for .q files
 au BufNewFile,BufRead *.q set filetype=hive expandtab
+
+autocmd BufWinEnter quickfix nnoremap <silent> <buffer>
+    \   q :cclose<cr>:lclose<cr>
+autocmd BufEnter * if (winnr('$') == 1 && &buftype ==# 'quickfix' ) |
+    \   bd|
+    \   q | endif
 
 " NERDTree
 " open a NERDTree automatically when vim starts up
@@ -129,11 +159,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <C-n> :NERDTreeToggle<CR>
 
 " display row number in NERDTree
-let NERDTreeShowLineNumbers=1
-let NERDTreeAutoCenter=1
+" let NERDTreeShowLineNumbers = 1
 " set width
 " let NERDTreeWinSize=20
-let NERDTreeIgnore=['\.pyc$', '\~$', '__pycache__$[[dir]]']
+let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\~$', '__pycache__$[[dir]]']
 
 " airline settings.
 let g:airline_theme = 'solarized'
@@ -179,15 +208,9 @@ if exists("g:loaded_webdevicons")
     call webdevicons#refresh()
 endif
 let g:airline_powerline_fonts = 1
-let g:webdevicons_enable = 1
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_enable_unite = 1
 let g:webdevicons_enable_vimfiler = 0
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
-let g:webdevicons_enable_ctrlp = 0
-let g:webdevicons_enable_flagship_statusline = 0
-let g:WebDevIconsUnicodeDecorateFileNodes = 0
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 " Tagbar
 map <C-m> :TagbarToggle<CR>
@@ -196,4 +219,22 @@ map <C-m> :TagbarToggle<CR>
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
+
+" fugitive
+" this makes Gdiff uses vertical spilter
+set diffopt+=vertical
+
+" gitgutter
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_modified_removed = '>_'
+
+" NERDCommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 
