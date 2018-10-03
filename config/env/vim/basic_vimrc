@@ -5,7 +5,6 @@ set showcmd
 set showmatch
 set cursorline
 syntax on
-set hls
 set incsearch					" find as you type search
 set hlsearch					" highlight search terms
 set winminheight=0				" windows can be 0 line high
@@ -35,12 +34,12 @@ set softtabstop=4
 set shiftwidth=4
 
 set laststatus=2
-set statusline=%<%f\     " Filename
-set statusline+=%w%h%m%r " Options
-set statusline+=\ [%{&ff}/%Y]            " filetype
-set statusline+=\ [%{getcwd()}]          " current dir
-set statusline+=\ [A=\%03.3b/H=\%02.2B]  " ASCII / Hexadecimal value of char
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+set statusline=%<%f\                    " Filename
+set statusline+=%w%h%m%r                " Options
+set statusline+=\ [%{&ff}/%Y]           " filetype
+set statusline+=\ [%{getcwd()}]         " current dir
+set statusline+=\ [A=\%03.3b/H=\%02.2B] " ASCII / Hexadecimal value of char
+set statusline+=%=%-14.(%l,%c%V%)\ %p%% " Right aligned file nav info
 
 " Stupid shift key fixes
 cmap W w

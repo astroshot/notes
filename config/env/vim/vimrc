@@ -162,7 +162,7 @@ map <C-n> :NERDTreeToggle<CR>
 " let NERDTreeShowLineNumbers = 1
 " set width
 " let NERDTreeWinSize=20
-let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\~$', '__pycache__$[[dir]]']
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\~$', '__pycache__$[[dir]]']
 
 " airline settings.
 let g:airline_theme = 'solarized'
@@ -237,4 +237,10 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+
+" easy align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
