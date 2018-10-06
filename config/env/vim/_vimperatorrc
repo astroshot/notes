@@ -1,0 +1,21 @@
+"3.16.0 (created: 2017/02/01 00:55:15)
+
+highlight Hint text-transform: uppercase; font-family : "Helvetica Neue", "Helvetica", "Arial", "Sans"; font-weight: bold; font-size: 11px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); color: #302505; padding: 1px 3px 0px 3px; background: -moz-linear-gradient(top, #FFF785, #FFC542); border: 1px #C38A22 solid; -moz-border-radius: 3px; -moz-box-shadow: 0 3px 7px 0px rgba(0,0,0,0.3);
+highlight HintActive background-color: inherit !important
+highlight HintElem background-color: inherit !important
+highlight HintImage opacity: .5 !important;
+map e <PageUp>
+map J 25j
+map K 25k
+map h <C-p>
+map l <C-n>
+map s :stop<Return>
+noremap <C-d> :dialog<Space>addbookmark<Return>
+set hintchars=abcdefghijklmnopqrstuvwxyz
+set nextpattern=s*下一页|下一张|下页s*,bnextb,^>$,^(>>|)$,^(>|),(>|)$,bmoreb
+set prevpattern=s*上一页|上一张|上页s*,bprev|previousb,^<$,^(<<|)$,^(<|),(<|)$
+
+source! "C:\\Users\\ezio\\_vimperatorrc.local"
+
+" vim: set ft=vimperator:
+
