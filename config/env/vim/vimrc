@@ -162,7 +162,7 @@ map <C-n> :NERDTreeToggle<CR>
 " let NERDTreeShowLineNumbers = 1
 " set width
 " let NERDTreeWinSize=20
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\~$', '__pycache__$[[dir]]']
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\~$', '__pycache__$[[dir]]', '\.swp$']
 
 " airline settings.
 let g:airline_theme = 'solarized'
