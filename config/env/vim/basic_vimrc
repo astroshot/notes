@@ -1,3 +1,8 @@
+" It may cause E10: \ should be followed by /, ? or &
+if &compatible
+  set nocompatible
+endif
+set backspace=indent,eol,start
 set shortmess=atI
 set nu
 set ruler
