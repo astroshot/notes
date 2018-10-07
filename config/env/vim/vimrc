@@ -76,19 +76,18 @@ set showcmd
 set showmatch
 set cursorline
 syntax on
-set hls
-set incsearch					" find as you type search
-set hlsearch					" highlight search terms
-set winminheight=0				" windows can be 0 line high
-set ignorecase					" case insensitive search
-set smartcase					" case sensitive when uc present
-set wildmenu					" show list instead of just completing
-set wildmode=list:longest,full	" command <Tab> completion, list matches, then longest common part, then all.
-set whichwrap=b,s,h,l,<,>,[,]	" backspace and cursor keys wrap to
-set scrolljump=5 				" lines to scroll when cursor leaves screen
-set scrolloff=3 				" minimum lines to keep above and below cursor
-set foldenable  				" auto fold code
-set gdefault					" the /g flag on :s substitutions by default
+set incsearch                  " find as you type search
+set hlsearch                   " highlight search terms
+set winminheight=0             " windows can be 0 line high
+set ignorecase                 " case insensitive search
+set smartcase                  " case sensitive when uc present
+set wildmenu                   " show list instead of just completing
+set wildmode=list:longest,full " command <Tab> completion, list matches, then longest common part, then all.
+set whichwrap=b,s,h,l,<,>,[,]  " backspace and cursor keys wrap to
+set scrolljump=5               " lines to scroll when cursor leaves screen
+set scrolloff=3                " minimum lines to keep above and below cursor
+set foldenable                 " auto fold code
+set gdefault                   " the /g flag on :s substitutions by default
 
 let g:solarized_termcolors=256
 
