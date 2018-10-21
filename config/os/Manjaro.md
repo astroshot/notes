@@ -92,3 +92,34 @@ yay -S watchdog
 systemctl enable watchdog.service
 systemctl start watchdog.service
 ```
+
+Mysql Installation
+
+```bash
+yay -S mysql
+```
+
+Choose mariadb, and then initialize the MariaDB data directory prior to starting the service.
+
+```bash
+sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+```
+
+start service
+
+```bash
+systemctl start mysqld
+```
+
+stop service
+
+```bash
+systemctl stop mysqld
+```
+
+restart service
+
+```bash
+systemctl restart mysqld
+```
+
