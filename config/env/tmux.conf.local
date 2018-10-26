@@ -7,7 +7,7 @@ set -g history-limit 10000
 set -g base-index 1
 set -g pane-base-index 1
 set -s escape-time 0
-set -g mouse on
+set -g mouse off
 #
 ##-- bindkeys --#
 ## split windows like vim.  - Note: vim's definition of a horizontal/vertical split is reversed from tmux's
@@ -228,10 +228,10 @@ tmux_conf_theme_window_status_last_bg='default'
 tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
-tmux_conf_theme_left_separator_main=''
-tmux_conf_theme_left_separator_sub='|'
-tmux_conf_theme_right_separator_main=''
-tmux_conf_theme_right_separator_sub='|'
+# tmux_conf_theme_left_separator_main=''
+# tmux_conf_theme_left_separator_sub='|'
+# tmux_conf_theme_right_separator_main=''
+# tmux_conf_theme_right_separator_sub='|'
 tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
 tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
 tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
