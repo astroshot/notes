@@ -40,6 +40,9 @@ Plug 'scrooloose/nerdcommenter'
 " golang dev
 Plug 'fatih/vim-go'
 
+" sh
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh'  }
+
 " hive sql
 Plug 'autowitch/hive.vim'
 Plug 'JessicaKMcIntosh/Vim'
@@ -253,3 +256,8 @@ nmap ga <Plug>(EasyAlign)
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" shfmt
+let g:shfmt_fmt_on_save = 1
+let g:shfmt_extra_args = '-i 4'
+
