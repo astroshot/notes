@@ -8,7 +8,8 @@ class Bid(object):
     E_high = 2
     E_low = 1
 
-    def __init__(self, max_val, min_val, max_range, min_range, num=10, score=60, max_iter=100000):
+    def __init__(self, max_val, min_val, max_range, min_range,
+                 num=10, score=60, max_iter=100000):
         """
 
         :param max_val: 最高投标价
@@ -41,7 +42,9 @@ class Bid(object):
                 self.num = self.num - 2
                 self.changed = True
                 if self.num != len(prices):
-                    raise Exception('Not Equal: {} != {}'.format(self.num, len(prices)))
+                    raise Exception(
+                        'Not Equal: {} != {}'.format(
+                            self.num, len(prices)))
 
         avg_price = np.average(prices)
         self.base_price = avg_price * 0.98
@@ -49,8 +52,10 @@ class Bid(object):
         low_prices = prices[np.where(prices < self.base_price)]
         new_prices = np.hstack((high_prices, low_prices))
 
-        high_scores = self.score - (high_prices - self.base_price) / self.base_price * self.E_high
-        low_scores = self.score + (low_prices - self.base_price) / self.base_price * self.E_low
+        high_scores = self.score - \
+            (high_prices - self.base_price) / self.base_price * self.E_high
+        low_scores = self.score + \
+            (low_prices - self.base_price) / self.base_price * self.E_low
         new_scores = np.hstack((high_scores, low_scores))
 
         max_score = np.max(new_scores)
