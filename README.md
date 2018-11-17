@@ -4,21 +4,24 @@ Notes are kept during development, including environment configuration.
 
 # Structure
 
-```
+```bash
 .
 ├── config
 │   ├── dev
 │   ├── env
 │   │   └── vim
 │   ├── golang
+│   │   └── dlv
 │   ├── jupyter
 │   └── os
 └── src
     ├── cpp
+    │   └── shm
     ├── dot
     │   └── example
     │       └── hashmap
     ├── python
+    │   ├── bid
     │   ├── jupyter
     │   └── util
     ├── shell

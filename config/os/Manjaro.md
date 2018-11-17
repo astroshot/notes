@@ -123,3 +123,10 @@ restart service
 systemctl restart mysqld
 ```
 
+Timezone Config
+
+```bash
+timedatectl status
+timedatectl set-local-rtc 0
+timedatectl set-timezone Asia/Shanghai
+```
