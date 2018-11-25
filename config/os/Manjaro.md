@@ -130,3 +130,24 @@ timedatectl status
 timedatectl set-local-rtc 0
 timedatectl set-timezone Asia/Shanghai
 ```
+
+Change folder names to English
+
+edit `~/.config/user-dirs.dirs`
+
+```bash
+vi ~/.config/user-dirs.dirs
+```
+
+then change dir name as you wish
+
+```bash
+XDG_DESKTOP_DIR="$HOME/Desktop"
+XDG_DOWNLOAD_DIR="$HOME/Downloads"
+XDG_TEMPLATES_DIR="$HOME/Templates"
+XDG_PUBLICSHARE_DIR="$HOME/Public"
+XDG_DOCUMENTS_DIR="$HOME/Documents"
+XDG_MUSIC_DIR="$HOME/Music"
+XDG_PICTURES_DIR="$HOME/Pictures"
+XDG_VIDEOS_DIR="$HOME/Videos"
+```
