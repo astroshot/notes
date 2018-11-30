@@ -24,7 +24,7 @@ def process(filepath):
             res = pat.findall(line)
             if res:
                 match_tuple = res[0]
-                new_str = '{}(0x{},0x{})'.format(match_tuple[0], match_tuple[1], match_tuple[2])
+                new_str = '{}(0x{},0x{});'.format(match_tuple[0], match_tuple[1], match_tuple[2])
                 out = pat.sub(new_str, line)
                 content.append(out)
             else:
@@ -35,12 +35,12 @@ def process(filepath):
 
 
 if __name__ == '__main__':
-    description_msg = u"""
-    usage: python data_clk.py --file=D:\\folder\\Data_clk_xxxx.txt
+    help_msg = r"""
+    usage: python data_clk.py --file=D:\folder\Data_clk_xxxx.txt
     and a file with name `Data_clk_xxxx_replaced.txt` will be writen in current path.
     """
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--file', type=str)
+    parser = argparse.ArgumentParser(description=help_msg)
+    parser.add_argument('--file', type=str, help=u'Input file')
 
     args = parser.parse_args()
     process(args.file)
