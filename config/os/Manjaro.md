@@ -151,3 +151,16 @@ XDG_MUSIC_DIR="$HOME/Music"
 XDG_PICTURES_DIR="$HOME/Pictures"
 XDG_VIDEOS_DIR="$HOME/Videos"
 ```
+
+Shorten `A stop job is running`
+
+```bash
+vi /etc/systemd/system.conf
+```
+
+Then change
+
+```bash
+DefaultTimeoutStartSec=9s
+DefaultTimeoutStopSec=9s
+```
