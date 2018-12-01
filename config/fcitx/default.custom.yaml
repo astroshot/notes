@@ -1,38 +1,20 @@
+# encoding: utf-8
+
 patch:
   "menu/page_size": 9
-  switches:                   # 注意縮進
-    - name: ascii_mode
-      reset: 0                # reset 0 的作用是當從其他輸入方案切換到本方案時，
-      states: [ 中文, 西文 ]  # 重設爲指定的狀態，而不保留在前一個方案中設定的狀態。
-    - name: full_shape        # 選擇輸入方案後通常需要立即輸入中文，故重設 ascii_mode = 0；
-      states: [ 半角, 全角 ]  # 而全／半角則可沿用之前方案中的用法。
-    - name: simplification
-      reset: 1                # 增加這一行：默認啓用「繁→簡」轉換。
-      states: [ 漢字, 汉字 ]
+  schema_list:
+    - schema: double_pinyin   # 自然码双拼
+    - schema: emoji           # emoji 表情
+  # switches:                   # 注意縮進
+  #   - name: ascii_mode
+  #     reset: 0                # reset 0 的作用是當從其他輸入方案切換到本方案時，
+  #     states: [ 中文, 西文 ]  # 重設爲指定的狀態，而不保留在前一個方案中設定的狀態。
+  #   - name: full_shape        # 選擇輸入方案後通常需要立即輸入中文，故重設 ascii_mode = 0；
+  #     states: [ 半角, 全角 ]  # 而全／半角則可沿用之前方案中的用法。
+  #   - name: simplification    # TODO: not work, add this line to double_pinyin.yaml will do
+  #     reset: 1                # 增加這一行：默認啓用「繁→簡」轉換。
+  #     states: [ 漢字, 汉字 ]
   # engine:
   #   filters:
   #     - simplifier  # 必要組件一
   #     - uniquifier  # 必要組件二
-  schema_list:
-    - schema: double_pinyin        # 自然碼雙拼
-    - schema: emoji         # emoji表情
-    # - schema: luna_pinyin          # 朙月拼音
-    - schema: luna_pinyin_simp     # 朙月拼音 简化字模式
-    # - schema: luna_pinyin_tw       # 朙月拼音 臺灣正體模式
-    # - schema: terra_pinyin         # 地球拼音 dì qiú pīn yīn
-    # - schema: bopomofo             # 注音
-    # - schema: bopomofo_tw          # 注音 臺灣正體模式
-    # - schema: jyutping             # 粵拼
-    # - schema: cangjie5             # 倉頡五代
-    # - schema: cangjie5_express     # 倉頡 快打模式
-    # - schema: quick5               # 速成
-    # - schema: wubi86               # 五笔86
-    # - schema: wubi_pinyin          # 五笔拼音混合輸入
-    # - schema: double_pinyin_mspy   # 微軟雙拼
-    # - schema: double_pinyin_abc    # 智能ABC雙拼
-    # - schema: double_pinyin_flypy  # 小鶴雙拼
-    # - schema: wugniu        # 吳語上海話（新派）
-    # - schema: wugniu_lopha  # 吳語上海話（老派）
-    # - schema: sampheng      # 中古漢語三拼
-    # - schema: zyenpheng     # 中古漢語全拼
-    # - schema: ipa_xsampa    # X-SAMPA 國際音標
