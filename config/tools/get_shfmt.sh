@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $(uname) = "Darwin"]; then
+if [ $(uname) = "Darwin" ]; then
     echo 'install shfmt on mac'
     brew install shfmt
 elif [ $(uname) = "Linux" ]; then
