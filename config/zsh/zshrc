@@ -108,6 +108,8 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias pbcopy="xclip -sel clipboard"
+alias pbpaste="xclip -sel clipboard -o"
 
 # Java config
 # export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
