@@ -66,6 +66,7 @@ Plug 'mileszs/ack.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
