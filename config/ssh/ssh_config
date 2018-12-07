@@ -1,0 +1,11 @@
+ForwardAgent yes
+
+Host github.com
+ Port 22
+
+Host gitlab.com
+  Hostname altssh.gitlab.com
+  User git
+  Port 443
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa
