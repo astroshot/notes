@@ -110,12 +110,12 @@ set softtabstop=4
 set shiftwidth=4
 
 " Stupid shift key fixes
-cmap W w
-cmap WQ wq
-cmap Wq wq
-cmap wQ wq
-cmap Q q
-cmap Tabe tabe
+" cmap W w
+" cmap WQ wq
+" cmap Wq wq
+" cmap wQ wq
+" cmap Q q
+" cmap Tabe tabe
 
 " .py files 
 au BufNewFile,BufRead *.py
