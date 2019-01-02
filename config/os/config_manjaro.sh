@@ -2,4 +2,4 @@
 
 echo 'Installing basic tools...'
 
-yay -S the_silver_searcher tmux tig boxes graphviz neofetch tree tcl tk ctags xclip
+yay -S the_silver_searcher tmux tig boxes graphviz neofetch tree tcl tk ctags xclip mitmproxy
