@@ -1,6 +1,6 @@
 #!/bin/sh
 
-yay -S fcitx fcitx-configtool fcitx-rime fcitx-googlepinyin
+yay -S fcitx fcitx-gtk2 fcitx-gtk3 fcitx-configtool fcitx-rime fcitx-googlepinyin
 
 conf_file=$HOME/.xprofile
 
