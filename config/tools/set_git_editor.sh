@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 git config --global core.editor vim
 git config --global merge.tool vimdiff
