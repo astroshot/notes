@@ -133,5 +133,8 @@ export PATH="$MYSQL_HOME/bin:$PATH"
 export PKG_CONFIG_PATH="$MYSQL_HOME/lib/pkgconfig"
 
 # For compilers to find mysql@5.7
-export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib"
-export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
+export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib -L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include -I/usr/local/opt/openssl@1.1/include"
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
