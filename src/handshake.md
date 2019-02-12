@@ -1,4 +1,4 @@
-Detect wlans
+# Detect wlans
 
 ```bash
 airmon-ng
@@ -19,4 +19,3 @@ Stop monitor mode
 ```bash
 airmon-ng stop wlan1mon
 ```
-
