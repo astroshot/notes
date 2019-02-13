@@ -1,0 +1,4 @@
+let mapleader = ","
+nmap <leader><leader>s :action KJumpAction<cr>
+nmap <leader><leader>w :action KJumpAction.Word0<cr>
+nmap <leader><leader>l :action KJumpAction.Line<cr>
