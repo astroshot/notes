@@ -1,3 +1,5 @@
+set nu
+set rnu
 let mapleader = ","
 nmap <leader><leader>s :action KJumpAction<cr>
 nmap <leader><leader>w :action KJumpAction.Word0<cr>
