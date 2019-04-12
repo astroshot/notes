@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# return current timestamp in ms
+timeStamp=$(date +%s)
+currentTimeStamp=$((timeStamp*1000+$(date "+%N")/1000000))
+echo $currentTimeStamp
