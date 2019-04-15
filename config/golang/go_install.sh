@@ -27,4 +27,5 @@ go get github.com/cweill/gotests/...
 go get golang.org/x/tools/cmd/guru
 go get golang.org/x/tools/cmd/gorename
 go get golang.org/x/tools/cmd/goimports
+go get golang.org/x/tools/cmd/gopls
 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
