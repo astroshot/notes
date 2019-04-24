@@ -110,6 +110,8 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+set fdm=indent
+
 " Stupid shift key fixes
 " cmap W w
 " cmap WQ wq
