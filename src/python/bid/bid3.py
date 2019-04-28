@@ -44,13 +44,15 @@ class Bid(object):
 
 @click.command()
 @click.option('--max_iter')
-def main(max_iter):
+@click.option('--num')
+def main(max_iter, num):
+    num = int(num)
     max_iter = int(max_iter)
-    b = Bid(max_iter=max_iter)
+    b = Bid(num=num, max_iter=max_iter)
     #  print(b.single_fit())
     winner = b.fit()
-    print(u'中标价平均值 {:.2f}, 最大值 {:.2f}, 最小值 {:.2f}, 标准差 {:.2f};'.format(
-        np.mean(winner), np.max(winner), np.min(winner), np.std(winner)))
+    print(u'投标商家数量 {}, 中标价平均值 {:.2f}%, 最大值 {:.2f}%, 最小值 {:.2f}%, 标准差 {:.2f};'.format(
+        num, np.mean(winner), np.max(winner), np.min(winner), np.std(winner)))
 
 
 if __name__ == '__main__':
