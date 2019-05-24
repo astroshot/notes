@@ -1,0 +1,14 @@
+[Unit]
+Description=Cisco VPN Service
+Wants=NetworkManager.service
+After=NetworkManager.service
+
+[Service]
+Type=forking
+ExecStart=/opt/cisco/anyconnect/bin/vpnagentd
+PIDFile=/var/run/vpnagentd.pid
+ExecReload=/usr/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+
