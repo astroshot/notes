@@ -12,7 +12,7 @@ def use_logging(level):
                 logging.warning("%s is running" % func.__name__)
             elif level == "info":
                 logging.info("%s is running" % func.__name__)
-            return func(*args)
+            return func(*args, **kwargs)
         return wrapper
     
     return decorator
