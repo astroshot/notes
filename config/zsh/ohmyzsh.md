@@ -1,5 +1,16 @@
 # Configration
 
+## Compile zsh
+
+Download zsh source code, run `Util/preconfig` to generate runnable `configure`:
+
+```bash
+./Util/preconfig
+./configure
+make
+make install
+```
+
 ## Oh my zsh
 
 ```bash

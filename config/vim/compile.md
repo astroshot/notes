@@ -6,7 +6,6 @@ Anaconda is recommended. Assume anaconda is installed in path `$HOME/.local/`
 
 ## Compile using Python 3
 
-
 ```bash
 ./configure --enable-terminal --enable-gui=auto \
     --with-features=huge \
