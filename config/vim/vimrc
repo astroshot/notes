@@ -176,6 +176,13 @@ map <C-n> :NERDTreeToggle<CR>
 " let NERDTreeWinSize=20
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\~$', '__pycache__$[[dir]]', '\.swp$']
 
+" close rainbow in nerdtree
+let g:rainbow_conf = {
+\    'separately': {
+\       'nerdtree': 0
+\    }
+\}
+
 " airline settings.
 let g:airline_theme = 'solarized'
 let g:airline_solarized_bg='dark'
