@@ -61,8 +61,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/LeaderF'
 Plug 'majutsushi/tagbar'
-" Plug 'albfan/ag.vim'
-Plug 'mileszs/ack.vim'
+Plug 'epmatsw/ag.vim'
+" Plug 'mileszs/ack.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree'
@@ -266,9 +266,9 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " for ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" if executable('ag')
+  " let g:ackprg = 'ag --vimgrep'
+" endif
 
 " shfmt
 let g:shfmt_fmt_on_save = 1
