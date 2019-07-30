@@ -68,6 +68,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 
+Plug 'itchyny/vim-cursorword'
+Plug 'lfv89/vim-interestingwords'
+
 call plug#end()
 
 
