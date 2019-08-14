@@ -124,6 +124,8 @@ export PATH=$HOME/.local/npm/bin:$PATH
 # golang config
 export GOPATH=$HOME/Projects/Go
 export PATH=$HOME/.local/bin:$GOROOT/bin:$GOPATH/bin:$PATH
+# export GOROOT=$(go env | grep -Eo '(GOROOT=.*)' | grep -Eo '(=.*)' | sed 's/=//g' | sed 's/"//g')
+export $(go env | grep 'GOROOT' | sed 's/"//g')
 # :${JAVA_HOME}/bin:${PATH}
 
 # source /usr/local/bin/virtualenvwrapper.sh
@@ -141,4 +143,4 @@ export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include -I/usr/local/opt/openssl@1.1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # special
-export SW2MD=$HOME/.local/lib/swagger2markup-cli-1.3.3.jar
+# export SW2MD=$HOME/.local/lib/swagger2markup-cli-1.3.3.jar
