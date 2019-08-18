@@ -76,6 +76,7 @@ plugins=(
     cp
     zsh-syntax-highlighting
     zsh-autosuggestions
+    fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -141,16 +142,20 @@ if [ $(uname -s) = "Darwin" ]; then
     # For compilers to find mysql@5.7
     export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib -L/usr/local/opt/openssl@1.1/lib"
     export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include -I/usr/local/opt/openssl@1.1/include"
+# Linux settings
+elif [ $(uname -s) = "Linux" ]; then
+    alias pbcopy="xclip -sel clipboard"
+    alias pbpaste="xclip -sel clipboard -o"
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64/
 fi
 
 # special
 # export SW2MD=$HOME/.local/lib/swagger2markup-cli-1.3.3.jar
 
-# Linux settings
-if [ $(uname -s) = "Linux" ]; then
-    alias pbcopy="xclip -sel clipboard"
-    alias pbpaste="xclip -sel clipboard -o"
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+    source /usr/bin/virtualenvwrapper.sh
 fi
 
-[ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
-[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
