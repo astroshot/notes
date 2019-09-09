@@ -31,7 +31,7 @@ Plug 'vim-scripts/indentpython.vim'
 " show indent line
 Plug 'Yggdroot/indentLine'
 
-" grammar check/highlight 
+" grammar check/highlight
 Plug 'w0rp/ale'
 Plug 'junegunn/vim-easy-align'
 Plug 'plytophogy/vim-virtualenv'
@@ -123,7 +123,7 @@ set fdm=indent
 " cmap Q q
 " cmap Tabe tabe
 
-" .py files 
+" .py files
 au BufNewFile,BufRead *.py
 \ set tabstop=4 |
 \ set softtabstop=4 |
@@ -259,7 +259,7 @@ let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
 " easy align
