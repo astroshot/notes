@@ -7,28 +7,35 @@ and HEAD requests in a fairly straightforward manner.
 
 """
 
-
 __version__ = "0.1"
 __all__ = ["SimpleHTTPRequestHandler"]
 __author__ = "bones7456"
 __home_page__ = "http://li2z.cn/"
 
+import cgi
+import mimetypes
 import os
 import posixpath
-import BaseHTTPServer
-import urllib
-import cgi
-import shutil
-import mimetypes
 import re
-try:
-    from cStringIO import StringIO
-except ImportError:
-    from StringIO import StringIO
+import shutil
+import sys
+import urllib
+
+if sys.version_info.major == 3:
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+    from http.server import test as test_server
+    from io import StringIO
+else:
+    from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+    from BaseHTTPServer import test as test_server
+
+    try:
+        from cStringIO import StringIO
+    except ImportError:
+        from StringIO import StringIO
 
 
-class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
-
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     """Simple HTTP request handler with GET/HEAD/POST commands.
 
     This serves files from the current directory and any of its
@@ -47,7 +54,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         """Serve a GET request."""
         f = self.send_head()
         if f:
-            self.copyfile(f, self.wfile)
+            self.copy_file(f, self.wfile)
             f.close()
 
     def do_HEAD(self):
@@ -59,7 +66,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_POST(self):
         """Serve a POST request."""
         r, info = self.deal_post_data()
-        print r, info, "by: ", self.client_address
+        print("{}, {}, by: {}".format(r, info, self.client_address))
         f = StringIO()
         f.write('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">')
         f.write("<html>\n<title>Upload Result Page</title>\n")
@@ -81,50 +88,53 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(length))
         self.end_headers()
         if f:
-            self.copyfile(f, self.wfile)
+            self.copy_file(f, self.wfile)
             f.close()
 
     def deal_post_data(self):
         boundary = self.headers.plisttext.split("=")[1]
-        remainbytes = int(self.headers['content-length'])
+        remain_bytes = int(self.headers['content-length'])
         line = self.rfile.readline()
-        remainbytes -= len(line)
-        if not boundary in line:
-            return (False, "Content NOT begin with boundary")
+        remain_bytes -= len(line)
+        if boundary not in line:
+            return False, "Content NOT begin with boundary"
+
         line = self.rfile.readline()
-        remainbytes -= len(line)
+        remain_bytes -= len(line)
         fn = re.findall(r'Content-Disposition.*name="file"; filename="(.*)"', line)
         if not fn:
-            return (False, "Can't find out file name...")
+            return False, "Can't find out file name..."
+
         path = self.translate_path(self.path)
         fn = os.path.join(path, fn[0])
         while os.path.exists(fn):
             fn += "_"
+
         line = self.rfile.readline()
-        remainbytes -= len(line)
+        remain_bytes -= len(line)
         line = self.rfile.readline()
-        remainbytes -= len(line)
+        remain_bytes -= len(line)
         try:
             out = open(fn, 'wb')
         except IOError:
-            return (False, "Can't create file to write, do you have permission to write?")
+            return False, "Can't create file to write, do you have permission to write?"
 
-        preline = self.rfile.readline()
-        remainbytes -= len(preline)
-        while remainbytes > 0:
+        pre_line = self.rfile.readline()
+        remain_bytes -= len(pre_line)
+        while remain_bytes > 0:
             line = self.rfile.readline()
-            remainbytes -= len(line)
+            remain_bytes -= len(line)
             if boundary in line:
-                preline = preline[0:-1]
-                if preline.endswith('\r'):
-                    preline = preline[0:-1]
-                out.write(preline)
+                pre_line = pre_line[0:-1]
+                if pre_line.endswith('\r'):
+                    pre_line = pre_line[0:-1]
+                out.write(pre_line)
                 out.close()
-                return (True, "File '%s' upload success!" % fn)
+                return True, "File '{}' upload success!".format(fn)
             else:
-                out.write(preline)
-                preline = line
-        return (False, "Unexpect Ends of data.")
+                out.write(pre_line)
+                pre_line = line
+        return False, "Unexpected Ends of data."
 
     def send_head(self):
         """Common code for GET and HEAD commands.
@@ -162,6 +172,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         except IOError:
             self.send_error(404, "File not found")
             return None
+
         self.send_response(200)
         self.send_header("Content-type", ctype)
         fs = os.fstat(f.fileno())
@@ -238,7 +249,8 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             path = os.path.join(path, word)
         return path
 
-    def copyfile(self, source, outputfile):
+    @staticmethod
+    def copy_file(source, outputfile):
         """Copy all data between two file objects.
 
         The SOURCE argument is a file object open for reading
@@ -289,9 +301,8 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     })
 
 
-def test(HandlerClass=SimpleHTTPRequestHandler,
-         ServerClass=BaseHTTPServer.HTTPServer):
-    BaseHTTPServer.test(HandlerClass, ServerClass)
+def test(handler_class=SimpleHTTPRequestHandler, server_class=HTTPServer):
+    test_server(handler_class, server_class)
 
 
 if __name__ == '__main__':
