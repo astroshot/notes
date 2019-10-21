@@ -2,11 +2,17 @@
 
 Compile and Install tmux 2.3 to dir `$HOME/.local`
 
+## Prepare
+
+```bash
+yum install -y automake gcc git make
+```
+
 ## Download tmux 2.3 source code
 
 ## Install dependance
 
-### lib_event
+### libevent
 
 ```bash
 cd /path/to/libevent
