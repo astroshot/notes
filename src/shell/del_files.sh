@@ -5,7 +5,7 @@ cwd=$(pwd)
 
 files=$(ls $cwd)
 
-for dir in $cwd/$files; do
+for dir in $files; do
     # echo $cwd/$dir
     if [ -d $cwd/$dir ]; then
         # cd $cwd/$dir
@@ -17,6 +17,9 @@ for dir in $cwd/$files; do
         fi
         if [ -f $cwd/$dir/.classpath ]; then
             rm $cwd/$dir/.classpath
+        fi
+        if [ -d $cwd/$dir/.settings ]; then
+            rm -r $cwd/$dir/.settings
         fi
     fi
 done
