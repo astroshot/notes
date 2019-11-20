@@ -1,6 +1,6 @@
 # Manjaro config
 
-Basic dev tools
+## Basic dev tools
 
 ```bash
 sudo pacman -S go vim fcitx fcitx-configtool cmake the_silver_searcher octave python-requests terminus-font tmux tig
@@ -20,7 +20,7 @@ sudo pacman-mirrors -i -c China -m rank
 sudo pacman -Syy
 ```
 
-Install vscode
+### Install vscode
 
 ```bash
 git clone https://AUR.archlinux.org/visual-studio-code-bin.git
@@ -29,7 +29,7 @@ makepkg -s
 sudo pacman -U visual-studio-code-bin-*.pkg.tar.xz
 ```
 
-Install google-chrome
+### Install google-chrome
 
 ```bash
 git clone https://aur.archlinux.org/google-chrome.git
@@ -37,7 +37,7 @@ cd google-chrome
 yay -U google-chrome-67.0.3396.99-1-x86_64.pkg.tar.xz
 ```
 
-Install yay
+### Install yay
 
 ```bash
 git clone https://aur.archlinux.org/yay.git
@@ -45,7 +45,7 @@ cd yay
 makepkg -s
 ```
 
-Then error occurs:
+If error occurs:
 
 ```bash
 yay_sources git repo ... 失败 (未知的公共密匙 XXXXXXXXXXXXXXX)
@@ -58,28 +58,28 @@ Fix:
 gpg --recv-keys XXXXXXXXXXXXXXX
 ```
 
-Install fonts and symbola
+### Install fonts and symbola
 
 ```bash
 sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji wqy-microhei
 yay -S ttf-symbola
 ```
 
-PyCharm
+### PyCharm
 
 ```bash
 yay -S pycharm
 sudo chown -R user:group /usr/share/pycharm
 ```
 
-Intellij-Idea
+### Intellij-Idea
 
 ```bash
 yay -S intellij-idea-community-edition
 sudo chown -R user:group /usr/share/intellijidea-ce
 ```
 
-Others
+## Others
 
 ```bash
 yay -S boxes fcitx-googlepinyin graphviz neofetch tree tcl tk
@@ -93,7 +93,7 @@ systemctl enable watchdog.service
 systemctl start watchdog.service
 ```
 
-Mysql Installation
+### Mysql Installation
 
 ```bash
 yay -S mysql
@@ -108,22 +108,22 @@ sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 start service
 
 ```bash
-systemctl start mysqld
+systemctl start mariadb
 ```
 
 stop service
 
 ```bash
-systemctl stop mysqld
+systemctl stop mariadb
 ```
 
 restart service
 
 ```bash
-systemctl restart mysqld
+systemctl restart mariadb
 ```
 
-Timezone Config
+## Timezone Config
 
 ```bash
 timedatectl status
@@ -131,7 +131,7 @@ timedatectl set-local-rtc 0
 timedatectl set-timezone Asia/Shanghai
 ```
 
-Change folder names to English
+## Change folder names to English
 
 edit `~/.config/user-dirs.dirs`
 
@@ -152,7 +152,7 @@ XDG_PICTURES_DIR="$HOME/Pictures"
 XDG_VIDEOS_DIR="$HOME/Videos"
 ```
 
-Shorten `A stop job is running`
+## Shorten `A stop job is running`
 
 ```bash
 vi /etc/systemd/system.conf
@@ -163,4 +163,10 @@ Then change
 ```bash
 DefaultTimeoutStartSec=9s
 DefaultTimeoutStopSec=9s
+```
+
+## Change hostname
+
+```bash
+sudo hostnamectl set-hostname $new_name
 ```
