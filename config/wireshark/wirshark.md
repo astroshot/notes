@@ -1,10 +1,10 @@
-# wireshark installation
+# Wireshark installation
 
 ```bash
 yay -S wireshark-gtk
 ```
 
-# add user to group
+## add user to group
 
 ```bash
 gpasswd -a $(whoami) wireshark
