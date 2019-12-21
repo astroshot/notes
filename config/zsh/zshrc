@@ -141,9 +141,9 @@ elif [[ $(uname -s) = "Linux" ]]; then
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64/
 
     # Java config
-    # export JAVA_HOME=$HOME/.local/jvm/jdk
-    # export JRE_HOME=${JAVA_HOME}/jre
-    # export CLASS_PATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+    export JAVA_HOME=$HOME/.local/jvm/jdk
+    export JRE_HOME=${JAVA_HOME}/jre
+    export CLASS_PATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 fi
 
 # special
