@@ -12,8 +12,10 @@ sudo pacman -S i3-gaps xorg-servier xorg-init xorg-xrandr
 sudo pacman -S wqy-microhei
 ```
 
+## Polybar
+
 ```bash
-yay -S nerd-fonts-meslo polybar
+yay -S nerd-fonts-meslo polybar bspwm xbacklight pulseaudio wlan battery temperature
 ```
 
 ## Adjust resolution
