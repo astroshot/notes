@@ -9,6 +9,6 @@ if [ -f $conf_file ]; then
     mv $conf_file $HOME/.xprofile_bak
 fi
 
-echo 'GTK_IM_MODULE=fcitx' >>$conf_file
-echo 'QT_IM_MODULE=fcitx' >>$conf_file
-echo 'XMODIFIERS=@im=fcitx' >>$conf_file
+echo 'export GTK_IM_MODULE=fcitx' >>$conf_file
+echo 'export QT_IM_MODULE=fcitx' >>$conf_file
+echo 'export XMODIFIERS=@im=fcitx' >>$conf_file
