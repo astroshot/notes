@@ -17,13 +17,14 @@ if [[ ! -f ~/.local/share/applications/pycharm.desktop ]]; then
     touch ~/.local/share/applications/pycharm.desktop
 fi
 
-cat >~/.local/share/applications/pycharm.desktop <<EOL
+cat >~/.local/share/applications/pycharm.desktop <<EOF
 [Desktop Entry]
-Encoding=UTF-8
-Name=pycharm
-Exec=pycharm
-Icon=/opt/pycharm/bin/pycharm.png
-Terminal=false
 Type=Application
-Categories=Development;
-EOL
+Name=Pycharm
+Icon=/opt/pycharm/bin/pycharm.png
+Exec="/opt/pycharm/bin/pycharm.sh" %f
+Terminal=false
+Comment=Python IDE for Professional Developers
+Categories=Development;IDE;
+Encoding=UTF-8
+EOF

@@ -16,13 +16,14 @@ if [[ ! -f ~/.local/share/applications/idea.desktop ]]; then
     touch ~/.local/share/applications/idea.desktop
 fi
 
-cat >~/.local/share/applications/idea.desktop <<EOL
+cat >~/.local/share/applications/idea.desktop <<EOF
 [Desktop Entry]
-Encoding=UTF-8
-Name=idea
-Exec=/opt/idea/bin/idea.sh
-Icon=/opt/idea/bin/idea.png
-Terminal=false
 Type=Application
-Categories=Development;
-EOL
+Name=IntelliJ IDEA Community Edition
+Icon=/opt/idea/bin/idea.png
+Exec="/opt/idea/bin/idea.sh" %f
+Comment=Capable and Ergonomic IDE for JVM
+Terminal=false
+Categories=Development;IDE;
+Encoding=UTF-8
+EOF
