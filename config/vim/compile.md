@@ -32,8 +32,6 @@ Using anaconda3 with python3.7:
     --with-python3-config-dir=$HOME/.local/anaconda3/lib/python3.7/config \
     --includedir=$HOME/.local/anaconda3/include  \
     LDFLAGS=" -L$HOME/.local/anaconda3/lib -L$HOME/.local/anaconda3/lib/python3.7/config-3.7m-x86_64-linux-gnu"
-
-
 ```
 
 ## Set `$PATH` and other environment variables
