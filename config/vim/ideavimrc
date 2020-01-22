@@ -6,3 +6,4 @@ nmap <leader><leader>w :action KJumpAction.Word0<cr>
 nmap <leader><leader>j :action KJumpAction.Line<cr>
 set clipboard+=unnamed
 set surround
+set ideajoin
