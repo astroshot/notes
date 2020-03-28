@@ -241,6 +241,7 @@
             "hidden": false,
             "name": "Debian",
             "colorScheme": "Solarized Dark",
+            "fontFace" : "Meslo LG L DZ for Powerline",
             "fontSize" : 12,
             "cursorShape" : "filledBox",
             "startingDirectory" : "e:\\Projects",
