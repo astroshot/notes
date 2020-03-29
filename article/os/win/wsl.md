@@ -11,9 +11,9 @@ $ vim /etc/wsl.conf
 ```text
 [automount]
 enabled = true
-root = /mnt/
+# root = /mnt/
 options = "metadata,umask=22,fmask=11"
-mountFsTab = false
+# mountFsTab = false
 ```
 
 ## 配置 bashrc 或者 zshrc
@@ -25,3 +25,19 @@ fi
 ```
 
 > 参考[文章](https://www.turek.dev/post/fix-wsl-file-permissions/)
+
+## 备份和恢复
+
+### 备份
+
+打开 powershell
+
+```ps
+wsl --export Debian debian.tar
+```
+
+### 恢复
+
+```ps
+wsl --import Debian debian.tar
+```
