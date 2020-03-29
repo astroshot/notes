@@ -23,6 +23,10 @@ Using anaconda3 with python3.7:
 ## Compile vim in WSL Debian
 
 ```bash
+sudo apt install libncurses5-dev
+```
+
+```bash
 ./configure --enable-terminal --enable-gui=auto \
     --with-features=huge \
     --enable-multibyte \
