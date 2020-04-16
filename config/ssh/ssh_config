@@ -1,11 +1,20 @@
 ForwardAgent yes
 
 Host github.com
- Port 22
+    Port 22
+    HostName github.com
+    User Soundwave
+    IdentityFile ~/.ssh/id_rsa_g
 
 Host gitlab.com
-  Hostname altssh.gitlab.com
-  User git
-  Port 443
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/id_rsa
+    Hostname altssh.gitlab.com
+    User git
+    Port 443
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+Host *
+    ControlMaster auto
+    ControlPath ~/.ssh/%h-%p-%r
+    ControlPersist yes
+    ServerAliveInterval 30
