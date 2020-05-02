@@ -20,7 +20,7 @@ cat >~/.local/share/applications/idea.desktop <<EOF
 [Desktop Entry]
 Type=Application
 Name=IntelliJ IDEA Community Edition
-Icon=/opt/idea/bin/idea.png
+Icon=/opt/idea/bin/idea.svg
 Exec="/opt/idea/bin/idea.sh" %f
 Comment=Capable and Ergonomic IDE for JVM
 Terminal=false

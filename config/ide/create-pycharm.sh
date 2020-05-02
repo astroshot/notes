@@ -21,7 +21,7 @@ cat >~/.local/share/applications/pycharm.desktop <<EOF
 [Desktop Entry]
 Type=Application
 Name=Pycharm
-Icon=/opt/pycharm/bin/pycharm.png
+Icon=/opt/pycharm/bin/pycharm.svg
 Exec="/opt/pycharm/bin/pycharm.sh" %f
 Terminal=false
 Comment=Python IDE for Professional Developers
