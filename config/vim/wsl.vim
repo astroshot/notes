@@ -1,12 +1,12 @@
 " Install Plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Plug Manager
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.config/nvim/plug')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -21,6 +21,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " auto complete
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 
 " python dev
@@ -74,6 +75,9 @@ Plug 'lfv89/vim-interestingwords'
 call plug#end()
 
 " basic config
+" colorscheme solarized
+set background=dark
+
 set shortmess=atI
 set backspace=indent,eol,start
 set nu
@@ -112,9 +116,6 @@ set shiftwidth=4
 
 set fdm=indent
 
-colorscheme solarized
-set background=dark
-
 " .py files
 au BufNewFile,BufRead *.py
 \ set tabstop=4 |
@@ -134,6 +135,8 @@ autocmd FileType vim
 " map <leader> to space, default '\'
 let g:mapleader = ","
 
+" remember to execute `/usr/bin/python3 -m pip install neovim`
+let g:python3_host_prog = '/usr/bin/python3'
 let python_highlight_all = 1
 
 " for .hql files
