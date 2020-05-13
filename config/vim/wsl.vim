@@ -116,6 +116,11 @@ set shiftwidth=4
 
 set fdm=indent
 
+" Do not write backup file if vim is being called by `crontab -e`
+au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
+
+set clipboard=unnamed
+
 " .py files
 au BufNewFile,BufRead *.py
 \ set tabstop=4 |
