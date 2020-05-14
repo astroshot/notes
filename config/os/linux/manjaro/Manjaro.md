@@ -3,7 +3,7 @@
 ## Basic dev tools
 
 ```bash
-sudo pacman -S go vim fcitx fcitx-configtool cmake the_silver_searcher octave python-requests terminus-font tmux tig
+sudo pacman -S go neovim fcitx fcitx-configtool cmake the_silver_searcher octave python-requests python-neovim terminus-font tmux tig
 ```
 
 source
