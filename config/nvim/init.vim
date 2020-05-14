@@ -27,7 +27,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 
 " python dev
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'vim-scripts/indentpython.vim'
 " show indent line
 Plug 'Yggdroot/indentLine'
@@ -101,7 +101,7 @@ set scrolljump=5               " lines to scroll when cursor leaves screen
 set scrolloff=3                " minimum lines to keep above and below cursor
 set foldenable                 " auto fold code
 set gdefault                   " the /g flag on :s substitutions by default
-
+set clipboard+=unnamedplus
 let g:solarized_termcolors=256
 
 set encoding=utf-8
@@ -118,14 +118,6 @@ set softtabstop=4
 set shiftwidth=4
 
 set fdm=indent
-
-" Stupid shift key fixes
-" cmap W w
-" cmap WQ wq
-" cmap Wq wq
-" cmap wQ wq
-" cmap Q q
-" cmap Tabe tabe
 
 " .py files
 au BufNewFile,BufRead *.py
@@ -145,9 +137,14 @@ autocmd FileType vim
 
 " map <leader> to space, default '\'
 let g:mapleader = ","
+nnoremap ; :
 
 " Remember to execute /usr/local/bin/python3 -m pip install neovim
-let g:python3_host_prog = '/usr/local/bin/python3'
+if filereadable('/usr/local/bin/python3')
+  let g:python3_host_prog = '/usr/local/bin/python3'
+else
+  let g:python3_host_prog = '/usr/bin/python3'
+endif
 let python_highlight_all = 1
 
 " for .hql files
