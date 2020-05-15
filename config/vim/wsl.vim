@@ -139,6 +139,8 @@ autocmd FileType vim
 
 " map <leader> to space, default '\'
 let g:mapleader = ","
+nnoremap ; :
+set clipboard+=unnamedplus
 
 " remember to execute `/usr/bin/python3 -m pip install neovim`
 let g:python3_host_prog = '/usr/bin/python3'
