@@ -83,7 +83,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         if f:
             self.copyfile(f, self.wfile)
             f.close()
-        
+
     def deal_post_data(self):
         boundary = self.headers.plisttext.split("=")[1]
         remainbytes = int(self.headers['content-length'])
@@ -108,7 +108,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             out = open(fn, 'wb')
         except IOError:
             return (False, "Can't create file to write, do you have permission to write?")
-                
+
         preline = self.rfile.readline()
         remainbytes -= len(preline)
         while remainbytes > 0:
