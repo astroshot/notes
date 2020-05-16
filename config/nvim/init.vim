@@ -150,7 +150,11 @@ else
 endif
 let python_highlight_all = 1
 
-" for .hql files
+" ale config
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '--'
+
+"" for .hql files
 au BufNewFile,BufRead *.hql set filetype=hive expandtab
 " for .q files
 au BufNewFile,BufRead *.q set filetype=hive expandtab

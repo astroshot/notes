@@ -148,6 +148,10 @@ nmap <leader>rc :e $MYVIMRC<CR>
 let g:python3_host_prog = '/usr/bin/python3'
 let python_highlight_all = 1
 
+" ale config
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '--'
+
 " for .hql files
 au BufNewFile,BufRead *.hql set filetype=hive expandtab
 " for .q files
