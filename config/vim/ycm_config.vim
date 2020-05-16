@@ -118,6 +118,12 @@ set shiftwidth=4
 
 set fdm=indent
 
+" map <leader> to `,`, default '\'
+let g:mapleader = ","
+nnoremap ; :
+nmap <leader>e :e $MYVIMRC<CR>
+nmap <leader>r :so $MYVIMRC<CR>
+
 " Stupid shift key fixes
 " cmap W w
 " cmap WQ wq

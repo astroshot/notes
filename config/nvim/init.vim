@@ -136,9 +136,11 @@ autocmd FileType vim
 \ set softtabstop=2 |
 \ set shiftwidth=2
 
-" map <leader> to space, default '\'
+" map <leader> to `,`, default '\'
 let g:mapleader = ","
 nnoremap ; :
+nmap <leader>e :e $MYVIMRC<CR>
+nmap <leader>r :so $MYVIMRC<CR>
 
 " Remember to execute /usr/local/bin/python3 -m pip install neovim
 if filereadable('/usr/local/bin/python3')

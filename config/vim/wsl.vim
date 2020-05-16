@@ -119,7 +119,7 @@ set fdm=indent
 " Do not write backup file if vim is being called by `crontab -e`
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " .py files
 au BufNewFile,BufRead *.py
@@ -137,10 +137,15 @@ autocmd FileType vim
 \ set softtabstop=2 |
 \ set shiftwidth=2
 
-" map <leader> to space, default '\'
+" map <leader> to `,`, default '\'
 let g:mapleader = ","
 nnoremap ; :
 set clipboard+=unnamedplus
+
+" edit vimrc
+nmap <leader>e :e $MYVIMRC<CR>
+" reload vimrc
+nmap <leader>r :so $MYVIMRC<CR>
 
 " remember to execute `/usr/bin/python3 -m pip install neovim`
 let g:python3_host_prog = '/usr/bin/python3'
