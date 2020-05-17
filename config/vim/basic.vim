@@ -1,3 +1,7 @@
+"  +-+-+-+ +-+-+ +-+-+-+-+-+-+-+
+"  |v|i|m| |i|s| |a|w|e|s|o|m|e|
+"  +-+-+-+ +-+-+ +-+-+-+-+-+-+-+
+"
 " It may cause E10: \ should be followed by /, ? or &
 if &compatible
   set nocompatible

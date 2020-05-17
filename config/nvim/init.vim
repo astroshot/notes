@@ -1,3 +1,8 @@
+"    _   _   _     _   _     _   _   _   _   _   _   _  
+"   / \ / \ / \   / \ / \   / \ / \ / \ / \ / \ / \ / \ 
+"  ( v | i | m ) ( i | s ) ( a | w | e | s | o | m | e )
+"   \_/ \_/ \_/   \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/ \_/ 
+"
 " Install Plug
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
