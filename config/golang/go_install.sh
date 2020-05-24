@@ -3,7 +3,7 @@ mkdir -p $GOPATH/src/golang.org/x
 git clone https://github.com/golang/tools.git $GOPATH/src/golang.org/x/tools
 git clone https://github.com/golang/lint.git $GOPATH/src/golang.org/x/lint
 git clone https://github.com/golang/net.git $GOPATH/src/golang.org/x/net
-git clone https://github.com:golang/sys.git $GOPATH/src/golang.org/x/sys
+git clone https://github.com/golang/sys.git $GOPATH/src/golang.org/x/sys
 
 go get github.com/nsf/gocode
 go get github.com/stamblerre/gocode
