@@ -6,7 +6,7 @@ import pandas as pd
 
 def main(file_path: str, table_name: str) -> list:
 
-    df = pd.read_csv(file_path, dtype=str)
+    df = pd.read_csv(file_path, dtype=str, keep_default_na=False)
     sql_template = """INSERT INTO `{table_name}` ({cols}) VALUES ({vals});"""
     cols = []
     for col in df.columns:
