@@ -5,7 +5,6 @@ import pandas as pd
 
 
 def main(file_path: str, table_name: str) -> list:
-
     df = pd.read_csv(file_path, dtype=str, keep_default_na=False)
     sql_template = """INSERT INTO `{table_name}` ({cols}) VALUES ({vals});"""
     cols = []
@@ -34,7 +33,6 @@ def print_list(row: list):
 
 
 if __name__ == '__main__':
-
     help_msg = """
     example: python csv_to_sql.py --file=/path/to/data.csv --table_name=table
     """

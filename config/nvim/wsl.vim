@@ -12,7 +12,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " themes
-Plug 'altercation/vim-colors-solarized'
+Plug 'iCyMind/NeoSolarized'
 Plug 'luochen1990/rainbow'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -75,7 +75,8 @@ Plug 'lfv89/vim-interestingwords'
 call plug#end()
 
 " basic config
-" colorscheme solarized
+set termguicolors
+colorscheme NeoSolarized
 set background=dark
 
 set shortmess=atI
