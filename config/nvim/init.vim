@@ -18,7 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
 " themes
-Plug 'altercation/vim-colors-solarized'
+Plug 'iCyMind/NeoSolarized'
 Plug 'luochen1990/rainbow'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -84,7 +84,8 @@ call plug#end()
 
 " ----------------------------------------------------------------------------------------------------------------------
 " basic config
-colorscheme solarized
+set termguicolors
+colorscheme NeoSolarized
 set background=dark
 
 set shortmess=atI
