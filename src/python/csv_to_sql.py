@@ -60,7 +60,8 @@ def print_list(row: list):
 
 if __name__ == '__main__':
     help_msg = """
-    example: python csv_to_sql.py --file=/path/to/data.csv --table_name=table
+    Example: python csv_to_sql.py --file=/path/to/data.csv --table_name=table
+    On MacOS, You can export sqls to clipboard by typing: `python csv_to_sql.py --file=/path/file.csv --table_name=table | pbcopy`
     """
     parser = argparse.ArgumentParser(description=help_msg)
     parser.add_argument('--file', type=str, help='Input csv file')
