@@ -237,6 +237,12 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 
 let g:airline#extensions#bufferline#enabled = 1
 
+" leaderF config
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_PreviewResult = {'Function': 1, 'BufTag': 0, 'File': 1 }
+
 " YCM configs
 " let g:ycm_autoclose_preview_window_after_completion = 1
 " let g:ycm_key_invoke_completion = '<C-z>'
