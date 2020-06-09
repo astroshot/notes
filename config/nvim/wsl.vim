@@ -44,7 +44,7 @@ Plug 'plytophogy/vim-virtualenv'
 Plug 'scrooloose/nerdcommenter'
 
 " golang dev
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 
 " sh
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh'  }
@@ -60,8 +60,9 @@ Plug 'cespare/vim-toml'
 Plug 'solarnz/thrift.vim'
 
 " NERDTree
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'  }
 
 " tools
 Plug 'mhinz/vim-startify'
@@ -133,7 +134,7 @@ au BufNewFile,BufRead *.py
 \ set softtabstop=4 |
 \ set shiftwidth=4
 
-au BufNewFile,BufRead *.yaml,*.yml,*.json
+au BufNewFile,BufRead *.yaml,*.yml,*.json,*.vim,.vimrc
 \ set tabstop=2 |
 \ set softtabstop=2 |
 \ set shiftwidth=2
@@ -149,7 +150,8 @@ nnoremap ; :
 set clipboard+=unnamedplus
 
 let g:solarized_termcolors=256
-nmap <leader>rc :e $MYVIMRC<CR>
+nmap <leader>e :e $MYVIMRC<CR>
+nmap <leader>r :so $MYVIMRC<CR>
 
 " remember to execute `/usr/bin/python3 -m pip install neovim`
 let g:python3_host_prog = '/usr/bin/python3'
@@ -172,36 +174,40 @@ autocmd BufEnter * if (winnr('$') == 1 && &buftype ==# 'quickfix' ) |
 
 " ----------------------------------------------------------------------------------------------------------------------
 " plugins config
-" NERDTree
-" open a NERDTree automatically when vim starts up
-" autocmd VimEnter * NERDTree
-" place the cursor in the editor
-autocmd VimEnter * wincmd w
-" open a NERDTree automatically when vim starts up if no files were specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" startify
+let s:header = [
+      \ '',
+      \ '     __  __________    __    ____     _____ __  ______  ________ ___       _____ _    ________ ',
+      \ '    / / / / ____/ /   / /   / __ \   / ___// / / / __ \/ ____/ //_/ |     / /   | |  / / ____/ ',
+      \ '   / /_/ / __/ / /   / /   / / / /   \__ \/ /_/ / / / / /   / ,<  | | /| / / /| | | / / __/    ',
+      \ '  / __  / /___/ /___/ /___/ /_/ /   ___/ / __  / /_/ / /___/ /| | | |/ |/ / ___ | |/ / /___    ',
+      \ ' /_/ /_/_____/_____/_____/\____/   /____/_/ /_/\____/\____/_/ |_| |__/|__/_/  |_|___/_____/    ',
+      \ '',
+      \ ]
 
-" open NERDTree automatically when vim starts up on opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+let s:footer = [
+      \ '',
+      \ ' ██   █    █          ▄  █ ██   ▄█ █         █▀▄▀█ ▄███▄     ▄▀  ██     ▄▄▄▄▀ █▄▄▄▄ ████▄    ▄   ',
+      \ ' █ █  █    █         █   █ █ █  ██ █         █ █ █ █▀   ▀  ▄▀    █ █ ▀▀▀ █    █  ▄▀ █   █     █  ',
+      \ ' █▄▄█ █    █         ██▀▀█ █▄▄█ ██ █         █ ▄ █ ██▄▄    █ ▀▄  █▄▄█    █    █▀▀▌  █   █ ██   █ ',
+      \ ' █  █ ███▄ ███▄      █   █ █  █ ▐█ ███▄      █   █ █▄   ▄▀ █   █ █  █   █     █  █  ▀████ █ █  █ ',
+      \ '    █     ▀    ▀        █     █  ▐     ▀        █  ▀███▀    ███     █  ▀        █         █  █ █ ',
+      \ '   █                   ▀     █                 ▀                   █           ▀          █   ██ ',
+      \ '  ▀                         ▀                                     ▀                              ',
+      \ '',
+      \ ]
 
-" close vim when the only left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:startify_custom_header = startify#center(s:header)
+let g:startify_custom_footer = startify#center(s:footer)
 
-map <C-n> :NERDTreeToggle<CR>
+function! s:set_startify_left_padding() abort
+  let g:startify_padding_left = winwidth(0)/2 - 20
+endfunction
 
-" display row number in NERDTree
-" let NERDTreeShowLineNumbers = 1
-" set width
-" let NERDTreeWinSize=20
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\~$', '__pycache__$[[dir]]', '\.swp$']
-
-" close rainbow in nerdtree
-let g:rainbow_conf = {
-\    'separately': {
-\       'nerdtree': 0
-\    }
-\}
+autocmd! FileType startify
+autocmd  FileType startify set laststatus=0 showtabline=0
+  \| autocmd BufLeave <buffer> set laststatus=2 showtabline=2
+autocmd User Startified setlocal buflisted
 
 " airline settings.
 let g:airline_theme = 'solarized'
@@ -236,6 +242,13 @@ let g:airline#extensions#bufferline#enabled = 1
 
 let g:rainbow_active = 1
 
+" leaderF config
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_ShowDevIcons = 0
+let g:Lf_PreviewResult = {'Function': 1, 'BufTag': 0, 'File': 1 }
+
 " Tagbar
 " map <C-m> :TagbarToggle<CR>
 
@@ -254,13 +267,13 @@ let g:gitgutter_sign_modified_removed = '>_'
 
 " NERDCommenter
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+" let g:NERDSpaceDelims = 1
 " Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
+" let g:NERDDefaultAlign = 'left'
 " Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
+" let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
-let g:NERDToggleCheckAllLines = 1
+" let g:NERDToggleCheckAllLines = 1
 
 " easy align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -290,135 +303,140 @@ let g:multi_cursor_use_default_mapping = 0
 " let g:multi_cursor_quit_key            = '<Esc>'
 let g:multi_cursor_start_word_key = '<C-m>'
 
-" defx config
-" :h defx
-" ---
 " Problems? https://github.com/Shougo/defx.nvim/issues
+" Defx config
+call defx#custom#option('_', {
+  \ 'winwidth': 30,
+  \ 'split': 'vertical',
+  \ 'direction': 'topleft',
+  \ 'show_ignored_files': 0,
+  \ 'buffer_name': '',
+  \ 'toggle': 1,
+  \ 'resume': 1
+  \})
+
+nmap <silent> <Leader>d :Defx <cr>
 
 call defx#custom#option('_', {
-	\ 'resume': 1,
-	\ 'winwidth': 30,
-	\ 'split': 'vertical',
-	\ 'direction': 'topleft',
-	\ 'show_ignored_files': 0,
-	\ 'columns': 'indent:git:icons:filename',
-	\ 'root_marker': ' ',
-	\ })
+  \ 'resume': 1,
+  \ 'winwidth': 30,
+  \ 'split': 'vertical',
+  \ 'direction': 'topleft',
+  \ 'show_ignored_files': 0,
+  \ 'columns': 'indent:git:icons:filename',
+  \ 'root_marker': ' ',
+  \ })
 
 call defx#custom#column('git', {
-	\   'indicators': {
-	\     'Modified'  : '•',
-	\     'Staged'    : '✚',
-	\     'Untracked' : 'ᵁ',
-	\     'Renamed'   : '≫',
-	\     'Unmerged'  : '≠',
-	\     'Ignored'   : 'ⁱ',
-	\     'Deleted'   : '✖',
-	\     'Unknown'   : '⁇'
-	\   }
-	\ })
+  \   'indicators': {
+  \     'Modified'  : '•',
+  \     'Staged'    : '✚',
+  \     'Untracked' : 'ᵁ',
+  \     'Renamed'   : '≫',
+  \     'Unmerged'  : '≠',
+  \     'Ignored'   : 'ⁱ',
+  \     'Deleted'   : '✖',
+  \     'Unknown'   : '⁇'
+  \   }
+  \ })
 
 call defx#custom#column('mark', { 'readonly_icon': '', 'selected_icon': '' })
 
 " Events
 " ---
-
 augroup user_plugin_defx
-	autocmd!
+  autocmd!
+  " Define defx window mappings
+  autocmd FileType defx call <SID>defx_mappings()
 
-	" Define defx window mappings
-	autocmd FileType defx call <SID>defx_mappings()
+  " Delete defx if it's the only buffer left in the window
+  autocmd WinEnter * if &filetype == 'defx' && winnr('$') == 1 | bdel | endif
 
-	" Delete defx if it's the only buffer left in the window
-	autocmd WinEnter * if &filetype == 'defx' && winnr('$') == 1 | bdel | endif
-
-	" Move focus to the next window if current buffer is defx
-	autocmd TabLeave * if &filetype == 'defx' | wincmd w | endif
-
+  " Move focus to the next window if current buffer is defx
+  autocmd TabLeave * if &filetype == 'defx' | wincmd w | endif
 augroup END
 
 " Internal functions
 " ---
 function! s:jump_dirty(dir) abort
-	" Jump to the next position with defx-git dirty symbols
-	let l:icons = get(g:, 'defx_git_indicators', {})
-	let l:icons_pattern = join(values(l:icons), '\|')
+  " Jump to the next position with defx-git dirty symbols
+  let l:icons = get(g:, 'defx_git_indicators', {})
+  let l:icons_pattern = join(values(l:icons), '\|')
 
-	if ! empty(l:icons_pattern)
-		let l:direction = a:dir > 0 ? 'w' : 'bw'
-		return search(printf('\(%s\)', l:icons_pattern), l:direction)
-	endif
+  if ! empty(l:icons_pattern)
+    let l:direction = a:dir > 0 ? 'w' : 'bw'
+    return search(printf('\(%s\)', l:icons_pattern), l:direction)
+  endif
 endfunction
 
 function! s:defx_toggle_tree() abort
-	" Open current file, or toggle directory expand/collapse
-	if defx#is_directory()
-		return defx#do_action('open_or_close_tree')
-	endif
-	return defx#do_action('multi', ['drop'])
+  " Open current file, or toggle directory expand/collapse
+  if defx#is_directory()
+    return defx#do_action('open_or_close_tree')
+  endif
+  return defx#do_action('multi', ['drop'])
 endfunction
 
 function! s:defx_mappings() abort
-	" Defx window keyboard mappings
-	setlocal signcolumn=no expandtab
+  " Defx window keyboard mappings
+  setlocal signcolumn=no expandtab
 
-	nnoremap <silent><buffer><expr> <CR>  defx#do_action('drop')
-	nnoremap <silent><buffer><expr> l     <sid>defx_toggle_tree()
-	nnoremap <silent><buffer><expr> h     defx#async_action('cd', ['..'])
-	nnoremap <silent><buffer><expr> st    defx#do_action('multi', [['drop', 'tabnew'], 'quit'])
-	nnoremap <silent><buffer><expr> s     defx#do_action('open', 'botright vsplit')
-	nnoremap <silent><buffer><expr> i     defx#do_action('open', 'botright split')
-	nnoremap <silent><buffer><expr> P     defx#do_action('open', 'pedit')
-	nnoremap <silent><buffer><expr> K     defx#do_action('new_directory')
-	nnoremap <silent><buffer><expr> N     defx#do_action('new_multiple_files')
-	nnoremap <silent><buffer><expr> dd    defx#do_action('remove_trash')
-	nnoremap <silent><buffer><expr> r     defx#do_action('rename')
-	nnoremap <silent><buffer><expr> x     defx#do_action('execute_system')
-	nnoremap <silent><buffer><expr> .     defx#do_action('toggle_ignored_files')
-	nnoremap <silent><buffer><expr> yy    defx#do_action('yank_path')
-	nnoremap <silent><buffer><expr> ~     defx#async_action('cd')
-	nnoremap <silent><buffer><expr> q     defx#do_action('quit')
-	nnoremap <silent><buffer><expr> <Tab> winnr('$') != 1 ?
-		\ ':<C-u>wincmd w<CR>' :
-		\ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
-	" Defx's buffer management
-	nnoremap <silent><buffer><expr> q      defx#do_action('quit')
-	nnoremap <silent><buffer><expr> se     defx#do_action('save_session')
-	nnoremap <silent><buffer><expr> <C-r>  defx#do_action('redraw')
-	nnoremap <silent><buffer><expr> <C-g>  defx#do_action('print')
+  nnoremap <silent><buffer><expr> <CR>  defx#do_action('drop')
+  nnoremap <silent><buffer><expr> l     <sid>defx_toggle_tree()
+  nnoremap <silent><buffer><expr> h     defx#async_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> st    defx#do_action('multi', [['drop', 'tabnew'], 'quit'])
+  nnoremap <silent><buffer><expr> s     defx#do_action('open', 'botright vsplit')
+  nnoremap <silent><buffer><expr> i     defx#do_action('open', 'botright split')
+  nnoremap <silent><buffer><expr> P     defx#do_action('open', 'pedit')
+  nnoremap <silent><buffer><expr> K     defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> N     defx#do_action('new_multiple_files')
+  nnoremap <silent><buffer><expr> dd    defx#do_action('remove_trash')
+  nnoremap <silent><buffer><expr> r     defx#do_action('rename')
+  nnoremap <silent><buffer><expr> x     defx#do_action('execute_system')
+  nnoremap <silent><buffer><expr> .     defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> yy    defx#do_action('yank_path')
+  nnoremap <silent><buffer><expr> ~     defx#async_action('cd')
+  nnoremap <silent><buffer><expr> q     defx#do_action('quit')
+  nnoremap <silent><buffer><expr> <Tab> winnr('$') != 1 ?
+    \ ':<C-u>wincmd w<CR>' :
+    \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
+  " Defx's buffer management
+  nnoremap <silent><buffer><expr> q      defx#do_action('quit')
+  nnoremap <silent><buffer><expr> se     defx#do_action('save_session')
+  nnoremap <silent><buffer><expr> <C-r>  defx#do_action('redraw')
+  nnoremap <silent><buffer><expr> <C-g>  defx#do_action('print')
 
-	" File/dir management
-	nnoremap <silent><buffer><expr><nowait> c  defx#do_action('copy')
-	nnoremap <silent><buffer><expr><nowait> m  defx#do_action('move')
-	nnoremap <silent><buffer><expr><nowait> p  defx#do_action('paste')
-	nnoremap <silent><buffer><expr><nowait> r  defx#do_action('rename')
-	nnoremap <silent><buffer><expr> dd defx#do_action('remove_trash')
-	nnoremap <silent><buffer><expr> K  defx#do_action('new_directory')
-	nnoremap <silent><buffer><expr> N  defx#do_action('new_multiple_files')
+  " File/dir management
+  nnoremap <silent><buffer><expr><nowait> c  defx#do_action('copy')
+  nnoremap <silent><buffer><expr><nowait> m  defx#do_action('move')
+  nnoremap <silent><buffer><expr><nowait> p  defx#do_action('paste')
+  nnoremap <silent><buffer><expr><nowait> r  defx#do_action('rename')
+  nnoremap <silent><buffer><expr> dd defx#do_action('remove_trash')
+  nnoremap <silent><buffer><expr> K  defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> N  defx#do_action('new_multiple_files')
 
-	" Jump
-	nnoremap <silent><buffer>  [g :<C-u>call <SID>jump_dirty(-1)<CR>
-	nnoremap <silent><buffer>  ]g :<C-u>call <SID>jump_dirty(1)<CR>
+  " Jump
+  nnoremap <silent><buffer>  [g :<C-u>call <SID>jump_dirty(-1)<CR>
+  nnoremap <silent><buffer>  ]g :<C-u>call <SID>jump_dirty(1)<CR>
 
-	" Change directory
-	nnoremap <silent><buffer><expr><nowait> \  defx#do_action('cd', getcwd())
-	nnoremap <silent><buffer><expr><nowait> &  defx#do_action('cd', getcwd())
-	nnoremap <silent><buffer><expr> <BS>  defx#async_action('cd', ['..'])
-	nnoremap <silent><buffer><expr> ~     defx#async_action('cd')
-	nnoremap <silent><buffer><expr> u   defx#do_action('cd', ['..'])
-	nnoremap <silent><buffer><expr> 2u  defx#do_action('cd', ['../..'])
-	nnoremap <silent><buffer><expr> 3u  defx#do_action('cd', ['../../..'])
-	nnoremap <silent><buffer><expr> 4u  defx#do_action('cd', ['../../../..'])
+  " Change directory
+  nnoremap <silent><buffer><expr><nowait> \  defx#do_action('cd', getcwd())
+  nnoremap <silent><buffer><expr><nowait> &  defx#do_action('cd', getcwd())
+  nnoremap <silent><buffer><expr> <BS>  defx#async_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> ~     defx#async_action('cd')
+  nnoremap <silent><buffer><expr> u   defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> 2u  defx#do_action('cd', ['../..'])
+  nnoremap <silent><buffer><expr> 3u  defx#do_action('cd', ['../../..'])
+  nnoremap <silent><buffer><expr> 4u  defx#do_action('cd', ['../../../..'])
 
-	" Selection
-	nnoremap <silent><buffer><expr> *  defx#do_action('toggle_select_all')
-	nnoremap <silent><buffer><expr><nowait> <Space>
-		\ defx#do_action('toggle_select') . 'j'
+  " Selection
+  nnoremap <silent><buffer><expr> *  defx#do_action('toggle_select_all')
+  nnoremap <silent><buffer><expr><nowait> <Space>
+    \ defx#do_action('toggle_select') . 'j'
 
-	nnoremap <silent><buffer><expr> S  defx#do_action('toggle_sort', 'Time')
-	nnoremap <silent><buffer><expr> C
-		\ defx#do_action('toggle_columns', 'indent:mark:filename:type:size:time')
-
+  nnoremap <silent><buffer><expr> S  defx#do_action('toggle_sort', 'Time')
+  nnoremap <silent><buffer><expr> C
+    \ defx#do_action('toggle_columns', 'indent:mark:filename:type:size:time')
 endfunction
 
 " vim: set ts=2 sw=2 tw=80 noet :
