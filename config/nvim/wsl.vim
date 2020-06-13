@@ -317,16 +317,6 @@ call defx#custom#option('_', {
 
 nmap <silent> <Leader>d :Defx <cr>
 
-call defx#custom#option('_', {
-  \ 'resume': 1,
-  \ 'winwidth': 30,
-  \ 'split': 'vertical',
-  \ 'direction': 'topleft',
-  \ 'show_ignored_files': 0,
-  \ 'columns': 'indent:git:icons:filename',
-  \ 'root_marker': ' ',
-  \ })
-
 call defx#custom#column('git', {
   \   'indicators': {
   \     'Modified'  : '•',
@@ -340,7 +330,7 @@ call defx#custom#column('git', {
   \   }
   \ })
 
-call defx#custom#column('mark', { 'readonly_icon': '', 'selected_icon': '' })
+call defx#custom#column('mark', { 'readonly_icon': '🔒', 'selected_icon': '✔' })
 
 " Events
 " ---
